@@ -2,7 +2,6 @@ module "mysql_label" {
   source     = "cloudposse/label/null"
   version    = "0.25.0"
   attributes = ["mysql"]
-  delimiter  = ""
   context    = module.base_label.context
 }
 
