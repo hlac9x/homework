@@ -15,9 +15,9 @@ module "mysql_password" {
 
 module "mysql" {
   source  = "terraform-aws-modules/rds/aws"
-  version = "4.3.0"
+  version = "5.9.0"
 
-  identifier = var.identifier
+  identifier = module.mysql_label.id
 
   # DB instance configuration
   engine               = "mysql"
