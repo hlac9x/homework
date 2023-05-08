@@ -54,7 +54,10 @@ cluster_endpoint_public_access_cidrs = ["0.0.0.0/0"]
 # Enable manage aws auth or not
 manage_aws_auth_configmap = true
 
+#####################
 ### RDS VARIABLES ###
+#####################
+
 mysql_version              = "8.0.27"
 mysql_family               = "mysql8.0"
 mysql_major_engine_version = "8.0"
@@ -70,31 +73,3 @@ backup_window              = "03:00-06:00"
 backup_retention_period    = 7
 skip_final_snapshot        = false
 deletion_protection        = false
-
-#####################
-### ECR VARIABLES ###
-#####################
-image_tag_mutability = "MUTABLE"
-scan_on_push         = true
-timeouts_delete      = "60m"
-
-#####################
-# ROUTE53 VARIABLES #
-#####################
-main_domain = "anhquach.dev"
-sub_domain  = "acloudguru"
-
-#####################
-#### EKS ADDONS #####
-#####################
-# Recommended Addons
-enable_aws_lb_controller = true
-enable_external_dns      = true
-# Other Addons
-enable_argocd         = true
-enable_snapscheduler  = false
-enable_efs_csi_driver = false
-enable_velero         = false
-enable_linkerd        = false
-enable_vault          = false
-enable_secret_csi     = false
