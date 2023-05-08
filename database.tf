@@ -17,7 +17,7 @@ module "mysql" {
   source  = "terraform-aws-modules/rds/aws"
   version = "5.9.0"
 
-  identifier = module.mysql_label.id
+  # identifier = module.mysql_label.id
 
   # DB instance configuration
   engine               = "mysql"
