@@ -17,7 +17,7 @@ module "mysql" {
   source  = "terraform-aws-modules/rds/aws"
   version = "5.9.0"
 
-  identifier = "ee-instance-demo"
+  identifier = "mydatabase123"
 
   # DB instance configuration
   engine               = "mysql"
