@@ -15,7 +15,7 @@ module "mysql_password" {
 
 module "mysql" {
   source  = "terraform-aws-modules/rds/aws"
-  version = "5.9.0"
+  version = "4.3.0"
 
   identifier = var.identifier
 
