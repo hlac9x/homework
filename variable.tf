@@ -121,3 +121,9 @@ variable "storage_encrypted" {
   type        = bool
   default     = true
 }
+
+variable "identifier" {
+  description = "Database name"
+  type        = string
+  default = "mysql"
+}
