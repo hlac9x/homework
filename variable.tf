@@ -122,8 +122,8 @@ variable "storage_encrypted" {
   default     = true
 }
 
-variable "identifier" {
+variable "db_name" {
   description = "Database name"
   type        = string
-  default     = "wordpress"
+  default     = "homework"
 }

@@ -33,7 +33,7 @@ module "mysql" {
   storage_type          = var.storage_type
 
   # Cred configuration
-  db_name  = "homework"
+  db_name  = var.db_name
   username = var.username
   password = module.mysql_password.value
   port     = 3306
