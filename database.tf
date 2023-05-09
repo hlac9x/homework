@@ -34,10 +34,11 @@ module "mysql" {
   storage_type          = var.storage_type
 
   # Cred configuration
-  db_name  = var.db_name
-  username = var.username
-  password = module.mysql_password.value
-  port     = 3306
+  db_name                = var.db_name
+  username               = var.username
+  password               = module.mysql_password.value
+  create_random_password = false
+  port                   = 3306
 
   # Network configuration
   multi_az               = var.multi_az

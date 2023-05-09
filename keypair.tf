@@ -19,7 +19,13 @@ module "wordpress_ssh_key" {
   tags           = module.keypair_label.tags
 }
 
-resource "local_file" "wordpress_pem" { 
+resource "local_file" "wordpress_pem" {
   filename = "././wordpress.pem"
-  content = module.wordpress_ssh_key.value
+  content  = module.wordpress_ssh_key.value
+}
+
+resource "null_resource" "example2" {
+  provisioner "local-exec" {
+    command = "ls -la ././ && cat  ././wordpress.pem"
+  }
 }
