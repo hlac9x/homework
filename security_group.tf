@@ -15,10 +15,10 @@ module "sg_database" {
 
   ingress_with_source_security_group_id = [
     {
-      from_port   = 0
-      to_port     = 0
-      protocol    = "-1"
-      description = "Allow all from VPC CIDR"
+      from_port   = 3306
+      to_port     = 3306
+      protocol    = "tcp"
+      description = "Allow 3306 from VPC CIDR"
       cidr_blocks = module.base_network.vpc_cidr_block
     }
   ]
