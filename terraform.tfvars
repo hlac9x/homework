@@ -31,3 +31,17 @@ backup_window              = "03:00-06:00"
 backup_retention_period    = 7
 skip_final_snapshot        = false
 deletion_protection        = false
+
+##################
+### AMI SEARCH ###
+##################
+# ami_owner       = "amazon"
+# ami_regex_value = "amzn2-ami-hvm-2.0.20211001.1-x86_64-gp2" # Fixed version of Amazon Linux 2 AMI
+ami_owner       = "099720109477"
+ami_regex_value = "ubuntu/images/hvm-ssd/ubuntu-focal-20.04-*" # Fixed version of Ubuntu 20.04 LTS
+
+#############################
+### EC2 BASTION VARIABLES ###
+#############################
+bastion_instance_type = "t3.small"
+enable_monitoring     = false

@@ -127,3 +127,32 @@ variable "db_name" {
   type        = string
   default     = "homework"
 }
+
+###########################################################
+# AMI VARIABLES
+###########################################################
+variable "ami_owner" {
+  description = "Owner of the AMI that need to be searched"
+}
+
+variable "ami_regex_value" {
+  description = "Regex of the AMI name that need to be searched"
+}
+
+###########################################################
+# EC2 wordpress VARIABLES
+###########################################################
+variable "wordpress_instance_type" {
+  description = "Instance type of the wordpress VM"
+  default     = "t3.small"
+}
+
+variable "enable_monitoring" {
+  description = "Enable monitoring for wordpress or not"
+  type        = bool
+  default     = false
+}
+
+variable "wordpress_ami" {
+  description = "AMI ID to create the wordpress"
+}
