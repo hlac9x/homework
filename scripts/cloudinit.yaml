@@ -1,0 +1,41 @@
+#cloud-config
+package_update: true
+package_upgrade: true
+packages:
+  - docker.io
+  - docker-compose
+
+# Start the Docker service
+runcmd:
+  - systemctl start docker
+  - systemctl enable docker
+
+# Create directory for Docker Compose file
+runcmd:
+  - mkdir /opt/wordpress
+  - chown ubuntu:ubuntu /opt/wordpress
+
+# Write Docker Compose file
+write_files:
+  - path: /opt/wordpress/docker-compose.yml
+    content: |
+      version: '3'
+      services:
+        wordpress:
+          image: wordpress
+          ports:
+            - 80:80
+          volumes:
+            - wordpress:/var/www/html
+          environment:
+            - WORDPRESS_DB_HOST=${WORDPRESS_DB_HOST}
+            - WORDPRESS_DB_USER=${WORDPRESS_DB_USER}
+            - WORDPRESS_DB_PASSWORD=${WORDPRESS_DB_PASSWORD}
+            - WORDPRESS_DB_NAME=${WORDPRESS_DB_NAME}
+      volumes:
+        wordpress:
+
+# Run Docker Compose
+runcmd:
+  - cd /opt/wordpress
+  - docker-compose up -d
