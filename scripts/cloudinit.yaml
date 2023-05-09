@@ -4,11 +4,16 @@ package_upgrade: true
 packages:
   - docker.io
   - docker-compose
+  - mysql-client
 
 # Start the Docker service
 runcmd:
   - systemctl start docker
   - systemctl enable docker
+
+# Add the 'ubuntu' user to the 'docker' group
+runcmd:
+  - usermod -aG docker ubuntu
 
 # Create directory for Docker Compose file and WordPress data
 runcmd:
@@ -25,8 +30,8 @@ write_files:
       services:
         wordpress:
           image: wordpress
-          expose:
-            - 80
+          ports:
+            - 80:80
           volumes:
             - /var/www/html:/var/www/html
           environment:

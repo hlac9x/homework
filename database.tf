@@ -10,6 +10,7 @@ module "mysql_password" {
   type           = "password"
   length         = 10
   parameter_name = "${module.mysql_label.id}-password"
+  special        = false
   tags           = module.mysql_label.tags
 }
 

@@ -8,10 +8,10 @@ module "wordpress_label" {
 data "template_file" "user_data" {
   template = file("./scripts/cloudinit.yaml")
   vars = {
-    WORDPRESS_DB_HOST = module.mysql.db_instance_endpoint,
-    WORDPRESS_DB_USER = var.username,
+    WORDPRESS_DB_HOST     = module.mysql.db_instance_endpoint,
+    WORDPRESS_DB_USER     = var.username,
     WORDPRESS_DB_PASSWORD = module.mysql_password.value,
-    WORDPRESS_DB_NAME = var.db_name
+    WORDPRESS_DB_NAME     = var.db_name
   }
 }
 
