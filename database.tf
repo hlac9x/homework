@@ -17,7 +17,7 @@ module "mysql" {
   source  = "terraform-aws-modules/rds/aws"
   version = "5.9.0"
 
-  identifier = "mydatabase123"
+  identifier = module.mysql_label.id
 
   # DB instance configuration
   engine               = "mysql"
@@ -33,7 +33,7 @@ module "mysql" {
   storage_type          = var.storage_type
 
   # Cred configuration
-  db_name  = module.mysql_label.id
+  db_name  = "homework"
   username = var.username
   password = module.mysql_password.value
   port     = 3306
