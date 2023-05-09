@@ -37,7 +37,7 @@ module "wordpress" {
   vpc_security_group_ids      = [module.sg_dmz.security_group_id]
   subnet_id                   = module.base_network.public_subnets[0]
   associate_public_ip_address = true
-  user_data                   = data.template_file.user_data.rendered
+  # user_data                   = data.template_file.user_data.rendered
   tags                        = module.wordpress_label.tags
 }
 

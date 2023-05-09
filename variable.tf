@@ -152,7 +152,3 @@ variable "enable_monitoring" {
   type        = bool
   default     = false
 }
-
-variable "wordpress_ami" {
-  description = "AMI ID to create the wordpress"
-}
