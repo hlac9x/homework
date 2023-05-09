@@ -14,7 +14,13 @@ module "sg_database" {
   vpc_id      = module.base_network.vpc_id
 
   ingress_with_source_security_group_id = [
-
+    {
+      from_port                = 3306
+      to_port                  = 3306
+      protocol                 = "tcp"
+      description              = "Allow 3306 only from EC2"
+      source_security_group_id = module.sg_wordpress.security_group_id
+    }
   ]
 
   egress_with_cidr_blocks = [
