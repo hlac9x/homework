@@ -8,7 +8,6 @@ resource "random_password" "random_password" {
   count            = var.type == "password" ? 1 : 0
   length           = var.length
   special          = var.special
-  min_special      = 1
   min_lower        = 1
   min_numeric      = 1
   min_upper        = 1
