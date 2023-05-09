@@ -14,13 +14,7 @@ module "sg_database" {
   vpc_id      = module.base_network.vpc_id
 
   ingress_with_source_security_group_id = [
-    {
-      from_port   = 3306
-      to_port     = 3306
-      protocol    = "tcp"
-      description = "Allow 3306 from VPC CIDR"
-      cidr_blocks = module.base_network.vpc_cidr_block
-    }
+
   ]
 
   egress_with_cidr_blocks = [
