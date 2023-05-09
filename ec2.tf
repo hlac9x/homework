@@ -47,8 +47,8 @@ data "aws_ami" "ec2_ami_regex" {
 #   tags                        = module.wordpress_label.tags
 # }
 
-# resource "aws_eip" "wordpress" {
-#   vpc      = true
-#   instance = module.wordpress.id
-#   tags     = module.wordpress_label.tags
-# }
+resource "aws_eip" "wordpress" {
+  vpc      = true
+  instance = module.wordpress.id
+  tags     = module.wordpress_label.tags
+}
