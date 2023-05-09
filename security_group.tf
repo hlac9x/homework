@@ -14,7 +14,13 @@ module "sg_database" {
   vpc_id      = module.base_network.vpc_id
 
   ingress_with_source_security_group_id = [
-
+    {
+      from_port   = 0
+      to_port     = 0
+      protocol    = "-1"
+      description = "Allow all from VPC CIDR"
+      cidr_blocks = module.base_network.vpc_cidr_block
+    }
   ]
 
   egress_with_cidr_blocks = [
@@ -22,7 +28,7 @@ module "sg_database" {
       from_port   = 0
       to_port     = 0
       protocol    = "-1"
-      description = "Allow output to Local"
+      description = "Allow all to VPC CIDR"
       cidr_blocks = module.base_network.vpc_cidr_block
     }
   ]
