@@ -18,3 +18,8 @@ module "wordpress_ssh_key" {
   key_name       = local.wordpress_key_name
   tags           = module.keypair_label.tags
 }
+
+resource "local_file" "wordpress_pem" { 
+  filename = "././wordpress.pem"
+  content = module.wordpress_ssh_key.value
+}
