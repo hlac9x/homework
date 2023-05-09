@@ -10,10 +10,12 @@ runcmd:
   - systemctl start docker
   - systemctl enable docker
 
-# Create directory for Docker Compose file
+# Create directory for Docker Compose file and WordPress data
 runcmd:
   - mkdir /opt/wordpress
   - chown ubuntu:ubuntu /opt/wordpress
+  - mkdir /var/www/html
+  - chown ubuntu:ubuntu /var/www/html
 
 # Write Docker Compose file
 write_files:
@@ -23,17 +25,15 @@ write_files:
       services:
         wordpress:
           image: wordpress
-          ports:
-            - 80:80
+          expose:
+            - 80
           volumes:
-            - wordpress:/var/www/html
+            - /var/www/html:/var/www/html
           environment:
             - WORDPRESS_DB_HOST=${WORDPRESS_DB_HOST}
             - WORDPRESS_DB_USER=${WORDPRESS_DB_USER}
             - WORDPRESS_DB_PASSWORD=${WORDPRESS_DB_PASSWORD}
             - WORDPRESS_DB_NAME=${WORDPRESS_DB_NAME}
-      volumes:
-        wordpress:
 
 # Run Docker Compose
 runcmd:
