@@ -1,5 +1,6 @@
 locals {
   wordpress_key_name       = "${module.keypair_label.id}-wordpress"
+  wordpress_parameter_name = "${module.keypair_label.id}-wordpress-private-key"
 }
 
 module "keypair_label" {

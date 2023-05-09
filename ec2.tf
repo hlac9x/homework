@@ -34,7 +34,7 @@ module "wordpress" {
   instance_type               = var.wordpress_instance_type
   key_name                    = local.wordpress_key_name
   monitoring                  = var.enable_monitoring
-  vpc_security_group_ids      = [module.sg_dmz.security_group_id]
+  vpc_security_group_ids      = [module.sg_wordpress.security_group_id]
   subnet_id                   = module.base_network.public_subnets[0]
   associate_public_ip_address = true
   # user_data                   = data.template_file.user_data.rendered
