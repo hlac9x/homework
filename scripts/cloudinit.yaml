@@ -13,7 +13,7 @@ runcmd:
 
 # Add the 'ubuntu' user to the 'docker' group
 runcmd:
-  - usermod -aG docker ubuntu
+  - sudo usermod -aG docker ubuntu
 
 # Create directory for Docker Compose file and WordPress data
 runcmd:
@@ -39,6 +39,7 @@ write_files:
             - WORDPRESS_DB_USER=${WORDPRESS_DB_USER}
             - WORDPRESS_DB_PASSWORD=${WORDPRESS_DB_PASSWORD}
             - WORDPRESS_DB_NAME=${WORDPRESS_DB_NAME}
+          restart: always
 
 # Run Docker Compose
 runcmd:
