@@ -18,7 +18,7 @@ module "sg_database" {
       from_port                = 3306
       to_port                  = 3306
       protocol                 = "tcp"
-      description              = "Allow 3306 only from EC2"
+      description              = "Allow 3306 only from wordpress subnet"
       source_security_group_id = module.sg_wordpress.security_group_id
     }
   ]
